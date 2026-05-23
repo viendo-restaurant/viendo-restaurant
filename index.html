@@ -49,11 +49,6 @@ nav ul{
 nav ul li a{
     color:white;
     text-decoration:none;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#d4a43a;
 }
 
 .btn{
@@ -95,9 +90,15 @@ nav ul li a:hover{
 }
 
 .hero p{
-    margin:15px 0;
-    font-size:18px;
-    color:#ddd;
+    margin:10px 0;
+}
+
+/* BUTTONS HERO */
+.hero-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:15px;
 }
 
 /* SECTION */
@@ -190,29 +191,6 @@ nav ul li a:hover{
     width:220px;
 }
 
-/* BUTTONS */
-.call-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#d4a43a;
-    color:black;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.wa-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
 /* FOOTER */
 footer{
     background:black;
@@ -231,8 +209,9 @@ nav{
 }
 nav ul{
     flex-direction:row;
+    justify-content:space-around;
+    width:100%;
     flex-wrap:wrap;
-    justify-content:center;
 }
 .hero h1{
     font-size:35px;
@@ -246,6 +225,7 @@ nav ul{
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="logo">VIENDO</div>
 
@@ -260,9 +240,24 @@ nav ul{
 <!-- HERO -->
 <div class="hero">
 <div class="overlay"></div>
+
 <div class="hero-content">
 <h1>VIENDO</h1>
 <p>أفضل المشاوي في بسكرة</p>
+
+<!-- BUTTONS FIX -->
+<div class="hero-buttons">
+
+<a class="btn" href="tel:0791071217">
+📞 اتصال
+</a>
+
+<a class="btn" href="https://wa.me/213791071217" target="_blank" style="background:#25D366;color:white;">
+💬 واتساب
+</a>
+
+</div>
+
 </div>
 </div>
 
@@ -279,7 +274,6 @@ nav ul{
 <p>لحم طري مع صوص خاص</p>
 <div class="price">1200 دج</div>
 
-<!-- COMMENTS -->
 <div class="comment-box">
 <input id="c1" placeholder="اكتب تعليق...">
 <button onclick="addComment('c1','com1')">إرسال</button>
@@ -295,7 +289,6 @@ nav ul{
 <p>أفضل اللحوم المشوية</p>
 <div class="price">1500 دج</div>
 
-<!-- COMMENTS -->
 <div class="comment-box">
 <input id="c2" placeholder="اكتب تعليق...">
 <button onclick="addComment('c2','com2')">إرسال</button>
@@ -311,7 +304,6 @@ nav ul{
 <p>خضار طازجة وصحية</p>
 <div class="price">500 دج</div>
 
-<!-- COMMENTS -->
 <div class="comment-box">
 <input id="c3" placeholder="اكتب تعليق...">
 <button onclick="addComment('c3','com3')">إرسال</button>
@@ -330,7 +322,7 @@ nav ul{
 <div class="features">
 <div class="feature">📍 بسكرة</div>
 <div class="feature">📞 0791071217</div>
-<div class="feature">💬 واتساب</div>
+<div class="feature">💬 واتساب مباشر</div>
 </div>
 </div>
 
