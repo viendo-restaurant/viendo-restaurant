@@ -49,11 +49,6 @@ nav ul{
 nav ul li a{
     color:white;
     text-decoration:none;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#d4a43a;
 }
 
 .btn{
@@ -86,7 +81,6 @@ nav ul li a:hover{
 
 .hero-content{
     position:relative;
-    max-width:600px;
 }
 
 .hero h1{
@@ -95,18 +89,7 @@ nav ul li a:hover{
 }
 
 .hero p{
-    margin:15px 0;
-    font-size:18px;
-    color:#ddd;
-}
-
-.hero button{
-    background:#d4a43a;
-    border:none;
-    padding:12px 20px;
-    border-radius:6px;
-    font-weight:bold;
-    cursor:pointer;
+    margin:10px 0;
 }
 
 /* SECTION */
@@ -116,9 +99,8 @@ nav ul li a:hover{
 }
 
 .section h2{
-    font-size:30px;
-    margin-bottom:40px;
     color:#d4a43a;
+    margin-bottom:30px;
 }
 
 /* MENU */
@@ -131,6 +113,7 @@ nav ul li a:hover{
 .card{
     background:#1a1a1a;
     border-radius:10px;
+    padding-bottom:15px;
     overflow:hidden;
 }
 
@@ -141,27 +124,46 @@ nav ul li a:hover{
 }
 
 .card h3{
-    padding:10px;
     color:#d4a43a;
+    margin:10px;
 }
 
 .card p{
-    padding:0 10px 15px;
     color:#ccc;
 }
 
 .price{
     color:#d4a43a;
     font-weight:bold;
-    padding-bottom:15px;
+    margin-bottom:10px;
 }
 
-/* FEATURES */
+/* BUTTONS */
+.btn{
+    cursor:pointer;
+}
+
+/* COMMENTS */
+.card button{
+    margin:3px;
+    padding:5px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.comments{
+    margin-top:10px;
+    font-size:14px;
+    color:#ccc;
+}
+
+/* CONTACT */
 .features{
     display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
+    justify-content:center;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 .feature{
@@ -171,87 +173,19 @@ nav ul li a:hover{
     width:220px;
 }
 
-/* BUTTONS */
-.call-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#d4a43a;
-    color:black;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.wa-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
+/* FOOTER */
 footer{
-    background:black;
     text-align:center;
     padding:20px;
+    background:black;
     margin-top:40px;
     color:#888;
 }
 
-/* TRACKING */
-#track input, #track select{
-    padding:10px;
-    margin:5px;
-    border-radius:8px;
-    border:none;
-}
-
-#trackBar{
-    width:300px;
-    height:15px;
-    background:#333;
-    margin:20px auto;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-#bar{
-    height:100%;
-    width:0%;
-    background:#d4a43a;
-    transition:0.5s;
-}
-
-/* ADMIN */
-#adminPanel{
-    display:none;
-    margin-top:20px;
-}
-
 /* MOBILE */
-@media (max-width:768px){
-nav{
-    flex-direction:column;
-    gap:10px;
-}
-nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-.hero h1{
-    font-size:35px;
-}
-.menu{
-    grid-template-columns:1fr;
-}
-.features{
-    flex-direction:column;
-    align-items:center;
-}
+@media(max-width:768px){
+.hero h1{font-size:35px;}
+.menu{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -259,93 +193,63 @@ nav ul{
 <body>
 
 <nav>
-    <div class="logo">VIENDO</div>
-
-    <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#menu">القائمة</a></li>
-        <li><a href="#track">تتبع الطلب</a></li>
-        <li><a href="#contact">اتصل بنا</a></li>
-    </ul>
-
-    <a class="btn" href="tel:0791071217">احجز الآن</a>
+<div class="logo">VIENDO</div>
+<ul>
+<li><a href="#menu">القائمة</a></li>
+<li><a href="#contact">اتصل بنا</a></li>
+</ul>
+<a class="btn" href="tel:0791071217">احجز الآن</a>
 </nav>
 
 <!-- HERO -->
-<div class="hero" id="home">
+<div class="hero">
 <div class="overlay"></div>
-
 <div class="hero-content">
 <h1>VIENDO</h1>
-<p>أفضل المشاوي والوجبات السريعة في بسكرة</p>
-<p style="color:#d4a43a;">📍 أمام فندق باب الصحراء</p>
-
-<button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
-اطلب الآن
-</button>
+<p>أفضل المشاوي في بسكرة</p>
 </div>
 </div>
 
 <!-- MENU -->
 <div class="section" id="menu">
-<h2>أطباقنا المميزة</h2>
+<h2>القائمة</h2>
 
 <div class="menu">
+
+<!-- CARD 1 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
 <h3>برغر مشوي</h3>
 <p>لحم طري مع صوص خاص</p>
 <div class="price">1200 دج</div>
+
+<button onclick="like(this)">👍 <span>0</span></button>
+<button onclick="dislike(this)">👎 <span>0</span></button>
+
+<div>
+<input placeholder="اكتب تعليق..." style="padding:6px;border-radius:6px;border:none;width:70%;">
+<button onclick="addComment(this)" class="btn">إرسال</button>
+<div class="comments"></div>
+</div>
 </div>
 
+<!-- CARD 2 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
 <h3>مشاوي متنوعة</h3>
-<p>أفضل أنواع اللحوم المشوية</p>
+<p>أفضل اللحوم المشوية</p>
 <div class="price">1500 دج</div>
+
+<button onclick="like(this)">👍 <span>0</span></button>
+<button onclick="dislike(this)">👎 <span>0</span></button>
+
+<div>
+<input placeholder="اكتب تعليق..." style="padding:6px;border-radius:6px;border:none;width:70%;">
+<button onclick="addComment(this)" class="btn">إرسال</button>
+<div class="comments"></div>
+</div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
-<h3>سلطة فرش</h3>
-<p>خضار طازجة وصحية</p>
-<div class="price">500 دج</div>
-</div>
-</div>
-</div>
-
-<!-- TRACKING -->
-<div class="section" id="track">
-<h2>تتبع الطلب</h2>
-
-<input id="trackId" placeholder="رقم الطلب">
-<button class="btn" onclick="trackOrder()">بحث</button>
-
-<h3 id="trackStatus">---</h3>
-
-<div id="trackBar">
-<div id="bar"></div>
-</div>
-
-<p id="percent">0%</p>
-
-<hr style="margin:30px 0;">
-
-<h2>لوحة التحكم (Admin)</h2>
-
-<input id="adminPass" placeholder="كلمة السر">
-<button class="btn" onclick="login()">دخول</button>
-
-<div id="adminPanel">
-<input id="orderId" placeholder="رقم الطلب">
-
-<select id="status">
-<option value="0">قيد التحضير</option>
-<option value="50">في الطريق</option>
-<option value="100">تم التوصيل</option>
-</select>
-
-<button class="btn" onclick="updateOrder()">تحديث</button>
 </div>
 </div>
 
@@ -354,70 +258,45 @@ nav ul{
 <h2>اتصل بنا</h2>
 
 <div class="features">
-<div class="feature">📍 أمام فندق باب الصحراء</div>
-
+<div class="feature">📍 بسكرة</div>
 <div class="feature">
-📞 الهاتف
-<br>
-<a class="call-btn" href="tel:0791071217">اتصل الآن</a>
+📞 0791071217
 </div>
-
 <div class="feature">
 💬 واتساب
-<br>
-<a class="wa-btn" href="https://wa.me/213791071217">راسلنا</a>
 </div>
 </div>
 </div>
 
 <footer>
-© 2026 VIENDO Restaurant - Biskra
+© 2026 VIENDO Restaurant
 </footer>
 
 <script>
-let orders = JSON.parse(localStorage.getItem("orders")) || {};
-
-function trackOrder(){
-let id = document.getElementById("trackId").value;
-
-if(!orders[id]){
-document.getElementById("trackStatus").innerText = "الطلب غير موجود";
-document.getElementById("bar").style.width = "0%";
-document.getElementById("percent").innerText = "0%";
-return;
+function like(btn){
+let span = btn.querySelector("span");
+span.innerText = +span.innerText + 1;
 }
 
-let o = orders[id];
-document.getElementById("trackStatus").innerText = o.text;
-document.getElementById("bar").style.width = o.progress + "%";
-document.getElementById("percent").innerText = o.progress + "%";
+function dislike(btn){
+let span = btn.querySelector("span");
+span.innerText = +span.innerText + 1;
 }
 
-function login(){
-let pass = document.getElementById("adminPass").value;
+function addComment(btn){
+let input = btn.previousElementSibling;
+let text = input.value;
 
-if(pass === "1234"){
-document.getElementById("adminPanel").style.display = "block";
-alert("Admin OK");
-}else{
-alert("Wrong password");
-}
-}
+if(text.trim() === "") return;
 
-function updateOrder(){
-let id = document.getElementById("orderId").value;
-let val = document.getElementById("status").value;
+let comments = btn.parentElement.querySelector(".comments");
 
-let text = "";
-if(val==0) text="قيد التحضير";
-if(val==50) text="في الطريق";
-if(val==100) text="تم التوصيل";
+let p = document.createElement("p");
+p.innerText = "💬 " + text;
 
-orders[id] = {progress:val,text:text};
+comments.appendChild(p);
 
-localStorage.setItem("orders",JSON.stringify(orders));
-
-alert("تم التحديث");
+input.value = "";
 }
 </script>
 
