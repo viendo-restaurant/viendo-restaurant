@@ -49,6 +49,11 @@ nav ul{
 nav ul li a{
     color:white;
     text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#d4a43a;
 }
 
 .btn{
@@ -81,6 +86,7 @@ nav ul li a{
 
 .hero-content{
     position:relative;
+    max-width:600px;
 }
 
 .hero h1{
@@ -89,7 +95,9 @@ nav ul li a{
 }
 
 .hero p{
-    margin:10px 0;
+    margin:15px 0;
+    font-size:18px;
+    color:#ddd;
 }
 
 /* SECTION */
@@ -99,8 +107,9 @@ nav ul li a{
 }
 
 .section h2{
+    font-size:30px;
+    margin-bottom:40px;
     color:#d4a43a;
-    margin-bottom:30px;
 }
 
 /* MENU */
@@ -113,8 +122,8 @@ nav ul li a{
 .card{
     background:#1a1a1a;
     border-radius:10px;
-    padding-bottom:15px;
     overflow:hidden;
+    padding-bottom:10px;
 }
 
 .card img{
@@ -124,46 +133,54 @@ nav ul li a{
 }
 
 .card h3{
+    padding:10px;
     color:#d4a43a;
-    margin:10px;
 }
 
 .card p{
+    padding:0 10px 15px;
     color:#ccc;
 }
 
 .price{
     color:#d4a43a;
     font-weight:bold;
-    margin-bottom:10px;
+    padding-bottom:10px;
 }
 
-/* BUTTONS */
-.btn{
-    cursor:pointer;
+/* 💬 COMMENTS */
+.comment-box{
+    padding:10px;
 }
 
-/* COMMENTS */
-.card button{
-    margin:3px;
-    padding:5px 10px;
+.comment-box input{
+    width:70%;
+    padding:8px;
     border:none;
     border-radius:6px;
+}
+
+.comment-box button{
+    padding:8px 10px;
+    border:none;
+    border-radius:6px;
+    background:#d4a43a;
     cursor:pointer;
+    margin-right:5px;
 }
 
 .comments{
     margin-top:10px;
+    color:#bbb;
     font-size:14px;
-    color:#ccc;
 }
 
-/* CONTACT */
+/* FEATURES */
 .features{
     display:flex;
-    justify-content:center;
-    gap:20px;
+    justify-content:space-around;
     flex-wrap:wrap;
+    gap:20px;
 }
 
 .feature{
@@ -173,19 +190,56 @@ nav ul li a{
     width:220px;
 }
 
+/* BUTTONS */
+.call-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 15px;
+    background:#d4a43a;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.wa-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 15px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
 /* FOOTER */
 footer{
+    background:black;
     text-align:center;
     padding:20px;
-    background:black;
     margin-top:40px;
     color:#888;
 }
 
 /* MOBILE */
-@media(max-width:768px){
-.hero h1{font-size:35px;}
-.menu{grid-template-columns:1fr;}
+@media (max-width:768px){
+nav{
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+nav ul{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.hero h1{
+    font-size:35px;
+}
+.menu{
+    grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -194,10 +248,12 @@ footer{
 
 <nav>
 <div class="logo">VIENDO</div>
+
 <ul>
 <li><a href="#menu">القائمة</a></li>
 <li><a href="#contact">اتصل بنا</a></li>
 </ul>
+
 <a class="btn" href="tel:0791071217">احجز الآن</a>
 </nav>
 
@@ -223,14 +279,13 @@ footer{
 <p>لحم طري مع صوص خاص</p>
 <div class="price">1200 دج</div>
 
-<button onclick="like(this)">👍 <span>0</span></button>
-<button onclick="dislike(this)">👎 <span>0</span></button>
-
-<div>
-<input placeholder="اكتب تعليق..." style="padding:6px;border-radius:6px;border:none;width:70%;">
-<button onclick="addComment(this)" class="btn">إرسال</button>
-<div class="comments"></div>
+<!-- COMMENTS -->
+<div class="comment-box">
+<input id="c1" placeholder="اكتب تعليق...">
+<button onclick="addComment('c1','com1')">إرسال</button>
+<div class="comments" id="com1"></div>
 </div>
+
 </div>
 
 <!-- CARD 2 -->
@@ -240,14 +295,29 @@ footer{
 <p>أفضل اللحوم المشوية</p>
 <div class="price">1500 دج</div>
 
-<button onclick="like(this)">👍 <span>0</span></button>
-<button onclick="dislike(this)">👎 <span>0</span></button>
-
-<div>
-<input placeholder="اكتب تعليق..." style="padding:6px;border-radius:6px;border:none;width:70%;">
-<button onclick="addComment(this)" class="btn">إرسال</button>
-<div class="comments"></div>
+<!-- COMMENTS -->
+<div class="comment-box">
+<input id="c2" placeholder="اكتب تعليق...">
+<button onclick="addComment('c2','com2')">إرسال</button>
+<div class="comments" id="com2"></div>
 </div>
+
+</div>
+
+<!-- CARD 3 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+<h3>سلطة فرش</h3>
+<p>خضار طازجة وصحية</p>
+<div class="price">500 دج</div>
+
+<!-- COMMENTS -->
+<div class="comment-box">
+<input id="c3" placeholder="اكتب تعليق...">
+<button onclick="addComment('c3','com3')">إرسال</button>
+<div class="comments" id="com3"></div>
+</div>
+
 </div>
 
 </div>
@@ -259,12 +329,8 @@ footer{
 
 <div class="features">
 <div class="feature">📍 بسكرة</div>
-<div class="feature">
-📞 0791071217
-</div>
-<div class="feature">
-💬 واتساب
-</div>
+<div class="feature">📞 0791071217</div>
+<div class="feature">💬 واتساب</div>
 </div>
 </div>
 
@@ -273,28 +339,16 @@ footer{
 </footer>
 
 <script>
-function like(btn){
-let span = btn.querySelector("span");
-span.innerText = +span.innerText + 1;
-}
+function addComment(inputId, boxId){
+let input = document.getElementById(inputId);
+let box = document.getElementById(boxId);
 
-function dislike(btn){
-let span = btn.querySelector("span");
-span.innerText = +span.innerText + 1;
-}
-
-function addComment(btn){
-let input = btn.previousElementSibling;
-let text = input.value;
-
-if(text.trim() === "") return;
-
-let comments = btn.parentElement.querySelector(".comments");
+if(input.value.trim() === "") return;
 
 let p = document.createElement("p");
-p.innerText = "💬 " + text;
+p.innerText = "💬 " + input.value;
 
-comments.appendChild(p);
+box.appendChild(p);
 
 input.value = "";
 }
