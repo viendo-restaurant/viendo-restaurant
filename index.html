@@ -194,7 +194,6 @@ nav ul li a:hover{
     font-weight:bold;
 }
 
-/* FOOTER */
 footer{
     background:black;
     text-align:center;
@@ -203,56 +202,56 @@ footer{
     color:#888;
 }
 
-/* ===================== */
-/* 📱 MOBILE RESPONSIVE */
-/* ===================== */
+/* TRACKING */
+#track input, #track select{
+    padding:10px;
+    margin:5px;
+    border-radius:8px;
+    border:none;
+}
+
+#trackBar{
+    width:300px;
+    height:15px;
+    background:#333;
+    margin:20px auto;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#bar{
+    height:100%;
+    width:0%;
+    background:#d4a43a;
+    transition:0.5s;
+}
+
+/* ADMIN */
+#adminPanel{
+    display:none;
+    margin-top:20px;
+}
+
+/* MOBILE */
 @media (max-width:768px){
-
-    /* NAVBAR FIX */
-    nav{
-        flex-direction:column;
-        align-items:center;
-        gap:10px;
-    }
-
-    nav ul{
-        flex-direction:row;
-        justify-content:space-around;
-        width:100%;
-        gap:10px;
-        flex-wrap:wrap;
-        text-align:center;
-    }
-
-    nav .btn{
-        margin-top:5px;
-    }
-
-    /* HERO */
-    .hero h1{
-        font-size:35px;
-        text-align:center;
-    }
-
-    .hero p{
-        font-size:14px;
-        text-align:center;
-    }
-
-    .hero-content{
-        text-align:center;
-    }
-
-    /* MENU */
-    .menu{
-        grid-template-columns:1fr;
-    }
-
-    /* FEATURES */
-    .features{
-        flex-direction:column;
-        align-items:center;
-    }
+nav{
+    flex-direction:column;
+    gap:10px;
+}
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.hero h1{
+    font-size:35px;
+}
+.menu{
+    grid-template-columns:1fr;
+}
+.features{
+    flex-direction:column;
+    align-items:center;
+}
 }
 </style>
 </head>
@@ -265,6 +264,7 @@ footer{
     <ul>
         <li><a href="#home">الرئيسية</a></li>
         <li><a href="#menu">القائمة</a></li>
+        <li><a href="#track">تتبع الطلب</a></li>
         <li><a href="#contact">اتصل بنا</a></li>
     </ul>
 
@@ -273,82 +273,153 @@ footer{
 
 <!-- HERO -->
 <div class="hero" id="home">
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <div class="hero-content">
-        <h1>VIENDO</h1>
-        <p>أفضل المشاوي والوجبات السريعة في بسكرة</p>
+<div class="hero-content">
+<h1>VIENDO</h1>
+<p>أفضل المشاوي والوجبات السريعة في بسكرة</p>
+<p style="color:#d4a43a;">📍 أمام فندق باب الصحراء</p>
 
-        <p style="color:#d4a43a;">
-            📍 أمام فندق باب الصحراء
-        </p>
-
-        <button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
-            اطلب الآن
-        </button>
-    </div>
+<button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+اطلب الآن
+</button>
+</div>
 </div>
 
 <!-- MENU -->
 <div class="section" id="menu">
-    <h2>أطباقنا المميزة</h2>
+<h2>أطباقنا المميزة</h2>
 
-    <div class="menu">
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h3>برغر مشوي</h3>
+<p>لحم طري مع صوص خاص</p>
+<div class="price">1200 دج</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-            <h3>برغر مشوي</h3>
-            <p>لحم طري مع صوص خاص</p>
-            <div class="price">1200 دج</div>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<h3>مشاوي متنوعة</h3>
+<p>أفضل أنواع اللحوم المشوية</p>
+<div class="price">1500 دج</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-            <h3>مشاوي متنوعة</h3>
-            <p>أفضل أنواع اللحوم المشوية</p>
-            <div class="price">1500 دج</div>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+<h3>سلطة فرش</h3>
+<p>خضار طازجة وصحية</p>
+<div class="price">500 دج</div>
+</div>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
-            <h3>سلطة فرش</h3>
-            <p>خضار طازجة وصحية</p>
-            <div class="price">500 دج</div>
-        </div>
+<!-- TRACKING -->
+<div class="section" id="track">
+<h2>تتبع الطلب</h2>
 
-    </div>
+<input id="trackId" placeholder="رقم الطلب">
+<button class="btn" onclick="trackOrder()">بحث</button>
+
+<h3 id="trackStatus">---</h3>
+
+<div id="trackBar">
+<div id="bar"></div>
+</div>
+
+<p id="percent">0%</p>
+
+<hr style="margin:30px 0;">
+
+<h2>لوحة التحكم (Admin)</h2>
+
+<input id="adminPass" placeholder="كلمة السر">
+<button class="btn" onclick="login()">دخول</button>
+
+<div id="adminPanel">
+<input id="orderId" placeholder="رقم الطلب">
+
+<select id="status">
+<option value="0">قيد التحضير</option>
+<option value="50">في الطريق</option>
+<option value="100">تم التوصيل</option>
+</select>
+
+<button class="btn" onclick="updateOrder()">تحديث</button>
+</div>
 </div>
 
 <!-- CONTACT -->
 <div class="section" id="contact">
-    <h2>اتصل بنا</h2>
+<h2>اتصل بنا</h2>
 
-    <div class="features">
+<div class="features">
+<div class="feature">📍 أمام فندق باب الصحراء</div>
 
-        <div class="feature">
-            📍 أمام فندق باب الصحراء - بسكرة
-        </div>
+<div class="feature">
+📞 الهاتف
+<br>
+<a class="call-btn" href="tel:0791071217">اتصل الآن</a>
+</div>
 
-        <div class="feature">
-            📞 الهاتف:
-            <br>
-            <a class="call-btn" href="tel:0791071217">اتصل الآن</a>
-        </div>
-
-        <div class="feature">
-            💬 واتساب:
-            <br>
-            <a class="wa-btn" href="https://wa.me/213791071217" target="_blank">
-                راسلنا على واتساب
-            </a>
-        </div>
-
-    </div>
+<div class="feature">
+💬 واتساب
+<br>
+<a class="wa-btn" href="https://wa.me/213791071217">راسلنا</a>
+</div>
+</div>
 </div>
 
 <footer>
-    © 2026 VIENDO Restaurant - Biskra
+© 2026 VIENDO Restaurant - Biskra
 </footer>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("orders")) || {};
+
+function trackOrder(){
+let id = document.getElementById("trackId").value;
+
+if(!orders[id]){
+document.getElementById("trackStatus").innerText = "الطلب غير موجود";
+document.getElementById("bar").style.width = "0%";
+document.getElementById("percent").innerText = "0%";
+return;
+}
+
+let o = orders[id];
+document.getElementById("trackStatus").innerText = o.text;
+document.getElementById("bar").style.width = o.progress + "%";
+document.getElementById("percent").innerText = o.progress + "%";
+}
+
+function login(){
+let pass = document.getElementById("adminPass").value;
+
+if(pass === "1234"){
+document.getElementById("adminPanel").style.display = "block";
+alert("Admin OK");
+}else{
+alert("Wrong password");
+}
+}
+
+function updateOrder(){
+let id = document.getElementById("orderId").value;
+let val = document.getElementById("status").value;
+
+let text = "";
+if(val==0) text="قيد التحضير";
+if(val==50) text="في الطريق";
+if(val==100) text="تم التوصيل";
+
+orders[id] = {progress:val,text:text};
+
+localStorage.setItem("orders",JSON.stringify(orders));
+
+alert("تم التحديث");
+}
+</script>
 
 </body>
 </html>
